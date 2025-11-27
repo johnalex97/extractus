@@ -26,6 +26,7 @@ import {
   useColorModeValue,
   useToast,
 } from "@chakra-ui/react";
+<<<<<<< HEAD
 import {
   FaChartLine,
   FaShoppingCart,
@@ -41,6 +42,9 @@ import autoTable from "jspdf-autotable";
 import ExcelJS from "exceljs";
 import { saveAs } from "file-saver";
 
+=======
+import { FaChartLine, FaShoppingCart, FaClipboardList } from "react-icons/fa";
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
 import api from "../../api/apiClient";
 
 const fmtHNL = new Intl.NumberFormat("es-HN", {
@@ -64,6 +68,10 @@ export default function ReportesContabilidad() {
   const titleColor = useColorModeValue("teal.700", "teal.200");
   const subtleText = useColorModeValue("gray.600", "gray.400");
 
+<<<<<<< HEAD
+=======
+  // filtros generales (rango de fechas)
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
   const [filtros, setFiltros] = useState({
     desde: hoyISO(),
     hasta: hoyISO(),
@@ -72,7 +80,11 @@ export default function ReportesContabilidad() {
   const [productos, setProductos] = useState([]);
   const [ventasVendedor, setVentasVendedor] = useState([]);
   const [pedidosDia, setPedidosDia] = useState([]);
+<<<<<<< HEAD
 const navigate = useNavigate();
+=======
+
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
   const handleChangeFiltro = (e) => {
     const { name, value } = e.target;
     setFiltros((f) => ({ ...f, [name]: value }));
@@ -80,12 +92,18 @@ const navigate = useNavigate();
 
   const cargarProductosMasVendidos = async () => {
     try {
+<<<<<<< HEAD
       const res = await api.get(
         "/contabilidad/reportes-contabilidad/productos-mas-vendidos",
         {
           params: { desde: filtros.desde, hasta: filtros.hasta, top: 10 },
         }
       );
+=======
+      const res = await api.get("/contabilidad/reportes-contabilidad/productos-mas-vendidos", {
+        params: { desde: filtros.desde, hasta: filtros.hasta, top: 10 },
+      });
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
       setProductos(res.data || []);
     } catch (err) {
       toast({
@@ -98,12 +116,18 @@ const navigate = useNavigate();
 
   const cargarVentasVendedor = async () => {
     try {
+<<<<<<< HEAD
       const res = await api.get(
         "/contabilidad/reportes-contabilidad/ventas-vendedor",
         {
           params: { desde: filtros.desde, hasta: filtros.hasta },
         }
       );
+=======
+      const res = await api.get("/contabilidad/reportes-contabilidad/ventas-vendedor", {
+        params: { desde: filtros.desde, hasta: filtros.hasta },
+      });
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
       setVentasVendedor(res.data || []);
     } catch (err) {
       toast({
@@ -116,12 +140,18 @@ const navigate = useNavigate();
 
   const cargarPedidosDiarios = async () => {
     try {
+<<<<<<< HEAD
       const res = await api.get(
         "/contabilidad/reportes-contabilidad/pedidos-diarios",
         {
           params: { desde: filtros.desde, hasta: filtros.hasta },
         }
       );
+=======
+      const res = await api.get("/contabilidad/reportes-contabilidad/pedidos-diarios", {
+        params: { desde: filtros.desde, hasta: filtros.hasta },
+      });
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
       setPedidosDia(res.data || []);
     } catch (err) {
       toast({
@@ -132,6 +162,10 @@ const navigate = useNavigate();
     }
   };
 
+<<<<<<< HEAD
+=======
+  // por defecto, al entrar, cargamos todo del día
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
   useEffect(() => {
     cargarProductosMasVendidos();
     cargarVentasVendedor();
@@ -139,6 +173,7 @@ const navigate = useNavigate();
     // eslint-disable-next-line
   }, []);
 
+<<<<<<< HEAD
   // ================= EXPORTACIONES =================
 
   // PRODUCTOS
@@ -293,6 +328,17 @@ const navigate = useNavigate();
         <CardBody>
 
           {/* ======= FILTROS ======= */}
+=======
+  return (
+    <Box p={4}>
+      <Heading size="lg" color={titleColor} mb={4}>
+        Reportes de Contabilidad
+      </Heading>
+
+      <Card bg={cardBg} borderWidth="1px" borderColor={border} boxShadow="xl">
+        <CardBody>
+          {/* Filtros globales de fechas */}
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
           <Flex justify="space-between" align="flex-end" mb={4} gap={4} flexWrap="wrap">
             <HStack spacing={4}>
               <FormControl>
@@ -305,7 +351,10 @@ const navigate = useNavigate();
                   size="sm"
                 />
               </FormControl>
+<<<<<<< HEAD
 
+=======
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
               <FormControl>
                 <FormLabel fontSize="sm">Hasta</FormLabel>
                 <Input
@@ -331,7 +380,11 @@ const navigate = useNavigate();
             </Button>
           </Flex>
 
+<<<<<<< HEAD
           {/* ======= TABS ======= */}
+=======
+          {/* Tabs de reportes */}
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
           <Tabs colorScheme="teal" isFitted>
             <TabList mb={4}>
               <Tab>
@@ -355,6 +408,7 @@ const navigate = useNavigate();
             </TabList>
 
             <TabPanels>
+<<<<<<< HEAD
 
               {/* ---------- PRODUCTOS ---------- */}
               <TabPanel>
@@ -462,6 +516,127 @@ const navigate = useNavigate();
             </TabPanels>
           </Tabs>
 
+=======
+              {/* ---------- TAB 1: PRODUCTOS ---------- */}
+              <TabPanel>
+                <VStack align="stretch" spacing={3}>
+                  <Text fontSize="sm" color={subtleText}>
+                    Top de productos más vendidos por cantidad en el rango seleccionado.
+                  </Text>
+                  <Box overflowX="auto">
+                    <Table size="sm">
+                      <Thead bg={headerBg}>
+                        <Tr>
+                          <Th>ID</Th>
+                          <Th>Producto</Th>
+                          <Th isNumeric>Cantidad vendida</Th>
+                          <Th isNumeric>Total vendido</Th>
+                        </Tr>
+                      </Thead>
+                      <Tbody>
+                        {productos.map((p) => (
+                          <Tr key={p.id_producto}>
+                            <Td>{p.id_producto}</Td>
+                            <Td>{p.nombre_producto}</Td>
+                            <Td isNumeric>{p.total_cantidad}</Td>
+                            <Td isNumeric>{fmtHNL.format(p.total_vendido || 0)}</Td>
+                          </Tr>
+                        ))}
+                        {productos.length === 0 && (
+                          <Tr>
+                            <Td colSpan={4}>
+                              <Text textAlign="center" color={subtleText} py={3}>
+                                Sin datos para el rango seleccionado.
+                              </Text>
+                            </Td>
+                          </Tr>
+                        )}
+                      </Tbody>
+                    </Table>
+                  </Box>
+                </VStack>
+              </TabPanel>
+
+              {/* ---------- TAB 2: VENTAS POR VENDEDOR ---------- */}
+              <TabPanel>
+                <VStack align="stretch" spacing={3}>
+                  <Text fontSize="sm" color={subtleText}>
+                    Facturas emitidas y montos vendidos por vendedor y fecha.
+                  </Text>
+                  <Box overflowX="auto">
+                    <Table size="sm">
+                      <Thead bg={headerBg}>
+                        <Tr>
+                          <Th>Vendedor</Th>
+                          <Th>Fecha</Th>
+                          <Th isNumeric># Facturas</Th>
+                          <Th isNumeric>Total vendido</Th>
+                        </Tr>
+                      </Thead>
+                      <Tbody>
+                        {ventasVendedor.map((v, idx) => (
+                          <Tr key={idx}>
+                            <Td>{v.vendedor}</Td>
+                            <Td>{v.fecha}</Td>
+                            <Td isNumeric>{v.cantidad_facturas}</Td>
+                            <Td isNumeric>{fmtHNL.format(v.total_vendido || 0)}</Td>
+                          </Tr>
+                        ))}
+                        {ventasVendedor.length === 0 && (
+                          <Tr>
+                            <Td colSpan={4}>
+                              <Text textAlign="center" color={subtleText} py={3}>
+                                Sin datos para el rango seleccionado.
+                              </Text>
+                            </Td>
+                          </Tr>
+                        )}
+                      </Tbody>
+                    </Table>
+                  </Box>
+                </VStack>
+              </TabPanel>
+
+              {/* ---------- TAB 3: PEDIDOS DIARIOS ---------- */}
+              <TabPanel>
+                <VStack align="stretch" spacing={3}>
+                  <Text fontSize="sm" color={subtleText}>
+                    Cantidad de pedidos y total diario en el rango seleccionado.
+                  </Text>
+                  <Box overflowX="auto">
+                    <Table size="sm">
+                      <Thead bg={headerBg}>
+                        <Tr>
+                          <Th>Fecha</Th>
+                          <Th isNumeric># Pedidos</Th>
+                          <Th isNumeric>Total pedidos</Th>
+                        </Tr>
+                      </Thead>
+                      <Tbody>
+                        {pedidosDia.map((p, idx) => (
+                          <Tr key={idx}>
+                            <Td>{p.fecha}</Td>
+                            <Td isNumeric>{p.cantidad_pedidos}</Td>
+                            <Td isNumeric>{fmtHNL.format(p.total_pedidos || 0)}</Td>
+                          </Tr>
+                        ))}
+                        {pedidosDia.length === 0 && (
+                          <Tr>
+                            <Td colSpan={3}>
+                              <Text textAlign="center" color={subtleText} py={3}>
+                                Sin datos para el rango seleccionado.
+                              </Text>
+                            </Td>
+                          </Tr>
+                        )}
+                      </Tbody>
+                    </Table>
+                  </Box>
+                </VStack>
+              </TabPanel>
+            </TabPanels>
+          </Tabs>
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
         </CardBody>
       </Card>
     </Box>

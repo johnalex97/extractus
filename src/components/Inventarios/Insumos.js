@@ -63,8 +63,11 @@ import ExcelJS from "exceljs";
 import { saveAs } from "file-saver";
 import api from "../../api/apiClient";
 import logoSrc from "../login/log.png";
+<<<<<<< HEAD
 import { FaArrowLeft } from "react-icons/fa";  // Importar el ícono
 import { useNavigate } from "react-router-dom";  // Importar el hook de navegación
+=======
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
 
 export default function InventarioDashboardVerde() {
   const [inventario, setInventario] = useState([]);
@@ -92,8 +95,11 @@ export default function InventarioDashboardVerde() {
   const cardBg = useColorModeValue("white", "#2d3748");
   const accent = useColorModeValue("#009e73", "teal.300");
   const headBg = useColorModeValue("#f1f8f4", "gray.700");
+<<<<<<< HEAD
   
   const navigate = useNavigate();
+=======
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
 
   // ============================================================
   // 📡 Cargar inventario usando datos reales de la BD (CORREGIDO)
@@ -260,6 +266,7 @@ export default function InventarioDashboardVerde() {
   ];
 
   const exportarPDF = () => {
+<<<<<<< HEAD
   const doc = new jsPDF("landscape");
   const fechaHora = new Date().toLocaleString("es-HN");
 
@@ -370,6 +377,17 @@ export default function InventarioDashboardVerde() {
   saveAs(blob, `Inventario_${new Date().toISOString().slice(0, 10)}.xlsx`);
 };
 
+=======
+    // NO TOQUÉ NADA DE TU PDF 
+    // (código completo intacto como lo tenías)
+    // ...
+  };
+
+  const exportarExcel = async () => {
+    // Igual: intacto como lo tenías
+    // ...
+  };
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
 
   // ============================================================
   // 💎 Render
@@ -385,6 +403,7 @@ export default function InventarioDashboardVerde() {
 
       {/* ENCABEZADO */}
       <Flex justify="space-between" mb={4} wrap="wrap" gap={3}>
+<<<<<<< HEAD
           <HStack spacing={3}>
             <Button
               leftIcon={<FaArrowLeft />}
@@ -394,6 +413,10 @@ export default function InventarioDashboardVerde() {
             >
               Atrás
             </Button>
+=======
+        <HStack spacing={2}>
+          <FaBoxes color={accent} size="18" />
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
           <Heading size="md" color={accent}>
             Inventario de Insumos
           </Heading>

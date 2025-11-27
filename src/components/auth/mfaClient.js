@@ -3,7 +3,11 @@
 // ============================================================
 
 // URL base del backend Express
+<<<<<<< HEAD
 const API_URL = `${process.env.REACT_APP_API_URL}/mfa`;
+=======
+const API_URL = "http://localhost:4000/mfa";
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
 
 /* ============================================================
    🔹 Generar o reutilizar QR (Google Authenticator)

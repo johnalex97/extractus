@@ -14,7 +14,11 @@ const app = express();
    🔹 CORS (ahora acepta x-user-email)
    ============================================================ */
 const corsOptions = {
+<<<<<<< HEAD
   origin: "*", // dirección del frontend React
+=======
+  origin: "http://localhost:3000", // dirección del frontend React
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
   methods: "GET,POST,PUT,DELETE",
   allowedHeaders: ["Content-Type", "x-user-email"], // 👈 IMPORTANTE
 };
@@ -169,18 +173,29 @@ app.post("/mfa/verify", async (req, res) => {
    ============================================================ */
 const contabilidadRoutes = require("./routes/contabilidad.routes");
 const mantenimientoRoutes = require("./routes/mantenimiento.routes");
+<<<<<<< HEAD
 const seguridadRoutes = require("./routes/seguridad.routes");
+=======
+const seguridadRoutes = require("./routes/Seguridad.routes");
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
 const bitacoraRoutes = require("./routes/bitacora.routes");
 const ventasRoutes = require("./routes/ventas.routes");
 const comprasRoutes = require("./routes/compras.routes");
 const produccionRoutes = require("./routes/produccion.routes");
+<<<<<<< HEAD
 const inventarioRoutes = require("./routes/inventario.routes");
+=======
+const inventarioRoutes = require("./routes/Inventario.routes");
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
 const pagosFacturaRoutes = require("./routes/pagosFactura.routes");
 const reportesContabilidadRoutes = require("./routes/reportesContabilidad.routes");
 
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
 app.use("/contabilidad", contabilidadRoutes);
 app.use("/seguridad", seguridadRoutes);
 app.use("/mantenimiento", mantenimientoRoutes);

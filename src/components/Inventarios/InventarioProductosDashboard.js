@@ -63,9 +63,12 @@ import ExcelJS from "exceljs";
 import { saveAs } from "file-saver";
 import api from "../../api/apiClient";
 import logoSrc from "../login/log.png";
+<<<<<<< HEAD
 import { useNavigate } from "react-router-dom"; // Asegúrate de importar useNavigate
 import { FaArrowLeft } from "react-icons/fa";
 
+=======
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
 
 export default function InventarioDashboardProductos() {
   const [inventario, setInventario] = useState([]);
@@ -94,8 +97,11 @@ export default function InventarioDashboardProductos() {
   const accent = useColorModeValue("#009e73", "teal.300");
   const headBg = useColorModeValue("#f1f8f4", "gray.700");
 
+<<<<<<< HEAD
   const navigate = useNavigate(); // Agrega esto dentro de tu componente
 
+=======
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
   // ============================================================
   // 📡 Cargar inventario productos
   // ============================================================
@@ -261,6 +267,7 @@ export default function InventarioDashboardProductos() {
     { id: "nivel", label: "Nivel" },
   ];
 
+<<<<<<< HEAD
 const exportarPDF = () => {
   const doc = new jsPDF("landscape");  // Cambiar a orientación "landscape" (horizontal)
 
@@ -277,6 +284,15 @@ const exportarPDF = () => {
     doc.text(`Generado: ${new Date().toLocaleString()}`, 10, 30);
 
     // Definición de los datos de la tabla
+=======
+  const exportarPDF = () => {
+    const doc = new jsPDF();
+
+    doc.addImage(logoSrc, "PNG", 10, 8, 25, 15);
+    doc.setFontSize(14);
+    doc.text("Reporte de Inventario de Productos", 70, 15);
+
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
     const data = inventario.map((i) => [
       i.nombre_producto,
       i.stock_minimo,
@@ -291,7 +307,10 @@ const exportarPDF = () => {
       calcularNivel(i).text,
     ]);
 
+<<<<<<< HEAD
     // Generar tabla con estilo
+=======
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
     autoTable(doc, {
       head: [
         [
@@ -307,6 +326,7 @@ const exportarPDF = () => {
         ],
       ],
       body: data,
+<<<<<<< HEAD
       startY: 40, // Desde donde empieza la tabla
       theme: 'grid', // Estilo de tabla
       margin: { top: 10, bottom: 10 },
@@ -374,6 +394,49 @@ const exportarExcel = async () => {
 };
 
 
+=======
+      startY: 30,
+    });
+
+    doc.save("inventario_productos.pdf");
+  };
+
+  const exportarExcel = async () => {
+    const wb = new ExcelJS.Workbook();
+    const ws = wb.addWorksheet("Inventario Productos");
+
+    ws.addRow([
+      "Producto",
+      "Stock Min",
+      "Stock Max",
+      "Entradas",
+      "Salidas",
+      "Actual",
+      "Unidad",
+      "Fecha Mov.",
+      "Nivel",
+    ]);
+
+    inventario.forEach((i) => {
+      ws.addRow([
+        i.nombre_producto,
+        i.stock_minimo,
+        i.stock_maximo,
+        i.total_entradas,
+        i.total_salidas,
+        i.inventario_final,
+        i.unidad_medida,
+        i.fecha_movimiento
+          ? new Date(i.fecha_movimiento).toLocaleDateString("es-HN")
+          : "—",
+        calcularNivel(i).text,
+      ]);
+    });
+
+    const buffer = await wb.xlsx.writeBuffer();
+    saveAs(new Blob([buffer]), "inventario_productos.xlsx");
+  };
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
 
   // ============================================================
   // 💎 Render
@@ -388,6 +451,7 @@ const exportarExcel = async () => {
       </audio>
 
       {/* ENCABEZADO */}
+<<<<<<< HEAD
   <Flex justify="space-between" align="center" mb={4}>
   {/* Botón Atrás al lado del título */}
   <HStack spacing={3}>
@@ -435,6 +499,44 @@ const exportarExcel = async () => {
   </HStack>
 </Flex>
 
+=======
+      <Flex justify="space-between" mb={4} wrap="wrap" gap={3}>
+        <HStack spacing={2}>
+          <FaBoxes color={accent} size="18" />
+          <Heading size="md" color={accent}>
+            Inventario de Productos
+          </Heading>
+        </HStack>
+
+        <HStack spacing={2}>
+          <Input
+            type="date"
+            size="xs"
+            w="110px"
+            value={fechaInicio}
+            onChange={(e) => setFechaInicio(e.target.value)}
+          />
+          <Input
+            type="date"
+            size="xs"
+            w="110px"
+            value={fechaFin}
+            onChange={(e) => setFechaFin(e.target.value)}
+          />
+          <Button size="xs" leftIcon={<FaBroom />} onClick={limpiarFiltros}>
+            Limpiar
+          </Button>
+          <Button
+            size="xs"
+            colorScheme="teal"
+            leftIcon={<FaSync />}
+            onClick={() => cargarInventario()}
+          >
+            Refrescar
+          </Button>
+        </HStack>
+      </Flex>
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
 
       {/* TARJETAS */}
       <SimpleGrid columns={[2, 4]} spacing={5} mb={6}>

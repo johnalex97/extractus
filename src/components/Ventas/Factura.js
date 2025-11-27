@@ -45,9 +45,12 @@ import {
 import { AddIcon, EditIcon, DeleteIcon } from "@chakra-ui/icons";
 import { FaPrint, FaFilePdf, FaFileExcel } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+<<<<<<< HEAD
 import { FaArrowLeft } from "react-icons/fa";
 import { Icon } from "@chakra-ui/react";
 
+=======
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
 
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
@@ -230,9 +233,12 @@ export default function Facturas() {
   const titleColor = useColorModeValue("teal.700", "teal.200");
   const subtleText = useColorModeValue("gray.600", "gray.400");
   const rowHover = useColorModeValue("gray.50", "gray.800");
+<<<<<<< HEAD
   const btnBackBg = useColorModeValue("teal.100", "teal.600");
 const btnBackColor = useColorModeValue("teal.800", "white");
 const btnBackHoverBg = useColorModeValue("teal.200", "teal.500");
+=======
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
 
   // Estado
   const [facturas, setFacturas] = useState([]);
@@ -257,7 +263,10 @@ const btnBackHoverBg = useColorModeValue("teal.200", "teal.500");
   } = useDisclosure();
   const [facturaParaImprimir, setFacturaParaImprimir] = useState(null);
   const [imprimirTrasGuardar, setImprimirTrasGuardar] = useState(false);
+<<<<<<< HEAD
   
+=======
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
 
   // Totales helpers
   const calcSub = (f) =>
@@ -894,6 +903,7 @@ cargarMetodosPago();
   // =========================
   const guardar = async () => {
     if (!sel.numero_factura || !sel.id_cliente) {
+<<<<<<< HEAD
   toast({
     title: "Datos incompletos",
     description: "Debe ingresar número de factura y seleccionar un cliente",
@@ -912,6 +922,15 @@ if (!sel.vendedor || !sel.vendedor.trim()) {
   return;
 }
 
+=======
+      toast({
+        title: "Datos incompletos",
+        description: "Debe ingresar número de factura y seleccionar un cliente",
+        status: "warning",
+      });
+      return;
+    }
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
 
     if (!sel.items.length) {
       toast({
@@ -1122,6 +1141,7 @@ const payload = {
   return (
     <Box p={4}>
       {/* Header principal */}
+<<<<<<< HEAD
     <Flex align="center" justify="space-between" mb={4}>
 
   {/* 🔹 IZQUIERDA: Botón Atrás + Título */}
@@ -1157,6 +1177,26 @@ const payload = {
   </Button>
 
 </Flex>
+=======
+      <Flex align="center" justify="space-between" mb={4}>
+        <Heading size="lg" color={titleColor}>
+          Facturas
+        </Heading>
+        <HStack>
+          <Button size="sm" onClick={() => navigate(-1)}>
+            ←
+          </Button>
+          <Button
+            leftIcon={<AddIcon />}
+            colorScheme="teal"
+            size="sm"
+            onClick={abrirNueva}
+          >
+            Nueva factura
+          </Button>
+        </HStack>
+      </Flex>
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
 
       <Divider mb={6} />
 
@@ -1443,6 +1483,7 @@ const payload = {
                         <FormLabel fontSize="sm">RTN</FormLabel>
                         <Input value={sel.rtn} isReadOnly />
                       </FormControl>
+<<<<<<< HEAD
                       <FormControl maxW="260px" isRequired>
   <FormLabel fontSize="sm">Vendedor</FormLabel>
   <Input
@@ -1452,6 +1493,16 @@ const payload = {
     placeholder="Ej: Karla Ramos"
   />
 </FormControl>
+=======
+                      <FormControl maxW="260px">
+                        <FormLabel fontSize="sm">Vendedor</FormLabel>
+                        <Input
+                          name="vendedor"
+                          value={sel.vendedor}
+                          onChange={actualizarCampo}
+                        />
+                      </FormControl>
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
                     </HStack>
 
                     <FormControl mt={3}>

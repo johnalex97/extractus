@@ -36,11 +36,19 @@ import {
   browserLocalPersistence,
   browserSessionPersistence,
 } from "firebase/auth";
+<<<<<<< HEAD
 import { auth } from "../../firebase.client";
 import signInLogo from "./log.png";
 import { mfaGenerate, mfaVerify } from "../auth/mfaClient";
 
 const API_URL = `${process.env.REACT_APP_API_URL}/mfa`;
+=======
+import { auth } from "../../firebase";
+import signInLogo from "./log.png";
+import { mfaGenerate, mfaVerify } from "../auth/mfaClient";
+
+const API_URL = "http://localhost:4000/mfa";
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
 
 export default function Login() {
   const [mode, setMode] = useState("login");

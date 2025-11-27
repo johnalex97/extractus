@@ -38,7 +38,10 @@ import { FaPlay, FaStop, FaClipboardList } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import api from "../../api/apiClient";
 
+<<<<<<< HEAD
 import { FaArrowLeft } from "react-icons/fa";
+=======
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
 
 // ============================================================
 // 🔧 Normalizar pedidos duplicados por JOIN
@@ -276,6 +279,7 @@ export default function Produccion() {
   return (
     <Box bg={bgPage} minH="100vh" p={6}>
       <Box bg={headerBg} color="white" px={6} py={4} borderRadius="2xl" mb={6}>
+<<<<<<< HEAD
   <Flex align="center" justify="flex-start" gap={4}>
     <Button
       leftIcon={<FaArrowLeft />}
@@ -295,6 +299,13 @@ export default function Produccion() {
   </Flex>
 </Box>
 
+=======
+        <Heading size="md">🏭 Módulo de Producción</Heading>
+        <Text fontSize="sm" opacity={0.8}>
+          Gestiona pedidos y registra consumo real de insumos.
+        </Text>
+      </Box>
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
 
       {/* TABLA */}
       <Box bg={bgCard} p={5} borderRadius="2xl" borderWidth="1px" borderColor={borderColor}>

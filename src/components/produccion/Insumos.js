@@ -1,9 +1,16 @@
 // ============================================================
 // 📁 src/components/Produccion/Insumos.js
+<<<<<<< HEAD
 // 💎 Gestión de Insumos (DISEÑO estilo Clientes + Mini Dashboard + Export)
 // ============================================================
 
 import React, { useEffect, useState, useCallback, useMemo } from "react";
+=======
+// 💎 Gestión de Insumos con control de stock mínimo y máximo
+// ============================================================
+
+import React, { useEffect, useState, useCallback } from "react";
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
 import {
   Box,
   Flex,
@@ -15,6 +22,7 @@ import {
   Button,
   Tooltip,
   Icon,
+<<<<<<< HEAD
   Card,
   CardHeader,
   CardBody,
@@ -69,6 +77,22 @@ export default function Insumos() {
   const subtitleColor = useColorModeValue("gray.600", "gray.300");
   const activosNumberColor = useColorModeValue("green.600", "green.300");
   const inactivosNumberColor = useColorModeValue("red.500", "red.300");
+=======
+} from "@chakra-ui/react";
+import { FaArrowLeft } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import CrudTabla from "../Seguridad/CrudTabla"; // ✅ Reutilizable
+import api from "../../api/apiClient"; // ✅ Axios centralizado
+
+export default function Insumos() {
+  // ============================================================
+  // 🎨 Estilos Chakra
+  // ============================================================
+  const accent = useColorModeValue("teal.600", "teal.300");
+  const btnBg = useColorModeValue("teal.100", "teal.600");
+  const btnColor = useColorModeValue("teal.800", "white");
+  const btnHoverBg = useColorModeValue("teal.200", "teal.500");
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
 
   const toast = useToast();
   const navigate = useNavigate();
@@ -78,7 +102,11 @@ export default function Insumos() {
   const [loading, setLoading] = useState(true);
 
   // ============================================================
+<<<<<<< HEAD
   // 🔹 Cargar insumos (MISMA LÓGICA)
+=======
+  // 🔹 Cargar insumos
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
   // ============================================================
   const cargarInsumos = useCallback(async () => {
     try {
@@ -97,7 +125,11 @@ export default function Insumos() {
   }, [toast]);
 
   // ============================================================
+<<<<<<< HEAD
   // 🔹 Cargar estados (MISMA LÓGICA)
+=======
+  // 🔹 Cargar estados de insumo
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
   // ============================================================
   const cargarEstados = useCallback(async () => {
     try {
@@ -109,6 +141,12 @@ export default function Insumos() {
     }
   }, []);
 
+<<<<<<< HEAD
+=======
+  // ============================================================
+  // 🔹 Cargar ambos al inicio
+  // ============================================================
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
   useEffect(() => {
     Promise.all([cargarInsumos(), cargarEstados()]).finally(() =>
       setLoading(false)
@@ -116,6 +154,7 @@ export default function Insumos() {
   }, [cargarInsumos, cargarEstados]);
 
   // ============================================================
+<<<<<<< HEAD
   // 📊 Mini Dashboard
   // ============================================================
   const { totalInsumos, insumosActivos, insumosInactivos } = useMemo(() => {
@@ -146,6 +185,47 @@ export default function Insumos() {
     { name: "precio_unitario", label: "Precio Unitario (Lps)", type: "number", step: "0.01", min: "0", required: true },
     { name: "stock_minimo", label: "Stock Mínimo", type: "number", step: "0.01", min: "0", required: true },
     { name: "stock_maximo", label: "Stock Máximo", type: "number", step: "0.01", min: "0", required: true },
+=======
+  // 🔹 Campos del formulario CRUD
+  // ============================================================
+  const fields = [
+    {
+      name: "nombre_insumo",
+      label: "Nombre del Insumo",
+      type: "text",
+      required: true,
+    },
+    {
+      name: "unidad_medida",
+      label: "Unidad de Medida",
+      type: "text",
+      required: true,
+    },
+    {
+      name: "precio_unitario",
+      label: "Precio Unitario (Lps)",
+      type: "number",
+      step: "0.01",
+      min: "0",
+      required: true,
+    },
+    {
+      name: "stock_minimo",
+      label: "Stock Mínimo",
+      type: "number",
+      step: "0.01",
+      min: "0",
+      required: true,
+    },
+    {
+      name: "stock_maximo",
+      label: "Stock Máximo",
+      type: "number",
+      step: "0.01",
+      min: "0",
+      required: true,
+    },
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
     {
       name: "id_estado_insumo",
       label: "Estado del Insumo",
@@ -158,6 +238,12 @@ export default function Insumos() {
     },
   ];
 
+<<<<<<< HEAD
+=======
+  // ============================================================
+  // 🔹 Columnas y extractores
+  // ============================================================
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
   const columns = [
     "ID Insumo",
     "Nombre",
@@ -182,13 +268,26 @@ export default function Insumos() {
       r.fecha_creacion
         ? new Date(r.fecha_creacion).toLocaleString("es-HN", {
             timeZone: "America/Tegucigalpa",
+<<<<<<< HEAD
+=======
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit",
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
             hour12: false,
           })
         : "—",
   };
 
   // ============================================================
+<<<<<<< HEAD
   // 🔹 CRUD (MISMA LÓGICA)
+=======
+  // 🔹 CRUD operaciones
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
   // ============================================================
   const handleInsert = async (nuevo) => {
     try {
@@ -198,15 +297,35 @@ export default function Insumos() {
         stock_maximo: parseFloat(nuevo.stock_maximo) || 0,
       });
 
+<<<<<<< HEAD
       const res = await api.get("/produccion/insumos");
       setData(res.data);
 
       toast({ title: "✅ Insumo agregado correctamente", status: "success" });
     } catch (err) {
+=======
+      // 🔄 Refrescar datos después de insertar
+      const res = await api.get("/produccion/insumos");
+      setData(res.data);
+
+      toast({
+        title: "✅ Insumo agregado correctamente",
+        status: "success",
+        duration: 3000,
+        isClosable: true,
+      });
+    } catch (err) {
+      console.error("❌ Error al insertar insumo:", err);
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
       toast({
         title: "Error al agregar insumo",
         description: err.response?.data?.error || err.message,
         status: "error",
+<<<<<<< HEAD
+=======
+        duration: 4000,
+        isClosable: true,
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
       });
     }
   };
@@ -219,6 +338,7 @@ export default function Insumos() {
         stock_maximo: parseFloat(editado.stock_maximo) || 0,
       });
 
+<<<<<<< HEAD
       const res = await api.get("/produccion/insumos");
       setData(res.data);
 
@@ -228,6 +348,26 @@ export default function Insumos() {
         title: "Error al actualizar",
         description: err.response?.data?.error || err.message,
         status: "error",
+=======
+      // 🔄 Refrescar datos después de actualizar
+      const res = await api.get("/produccion/insumos");
+      setData(res.data);
+
+      toast({
+        title: "✏️ Insumo actualizado correctamente",
+        status: "success",
+        duration: 3000,
+        isClosable: true,
+      });
+    } catch (err) {
+      console.error("❌ Error al actualizar insumo:", err);
+      toast({
+        title: "Error al actualizar insumo",
+        description: err.response?.data?.error || err.message,
+        status: "error",
+        duration: 4000,
+        isClosable: true,
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
       });
     }
   };
@@ -236,6 +376,7 @@ export default function Insumos() {
     try {
       await api.delete(`/produccion/insumos/${id}`);
 
+<<<<<<< HEAD
       const res = await api.get("/produccion/insumos");
       setData(res.data);
 
@@ -245,11 +386,32 @@ export default function Insumos() {
         title: "Error al eliminar",
         description: err.response?.data?.error || err.message,
         status: "error",
+=======
+      // 🔄 Refrescar datos después de eliminar
+      const res = await api.get("/produccion/insumos");
+      setData(res.data);
+
+      toast({
+        title: "🗑️ Insumo eliminado correctamente",
+        status: "info",
+        duration: 3000,
+        isClosable: true,
+      });
+    } catch (err) {
+      console.error("❌ Error al eliminar insumo:", err);
+      toast({
+        title: "Error al eliminar insumo",
+        description: err.response?.data?.error || err.message,
+        status: "error",
+        duration: 4000,
+        isClosable: true,
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
       });
     }
   };
 
   // ============================================================
+<<<<<<< HEAD
   // 🧾 PDF & EXCEL
   // ============================================================
 // ============================================================
@@ -350,10 +512,19 @@ const handleExportPDF = async () => {
     return (
       <Flex justify="center" align="center" minH="50vh" bg={pageBg}>
         <Spinner size="xl" color={accent} />
+=======
+  // 🔹 Loader (mientras carga)
+  // ============================================================
+  if (loading) {
+    return (
+      <Flex justify="center" align="center" minH="50vh">
+        <Spinner size="xl" color="teal.400" />
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
       </Flex>
     );
   }
 
+<<<<<<< HEAD
   return (
     <Box bg={pageBg} minH="100vh" p={4}>
       <Tooltip label="Volver al menú Producción">
@@ -423,5 +594,52 @@ const handleExportPDF = async () => {
         </CardBody>
       </Card>
     </Box>
+=======
+  // ============================================================
+  // 🔹 Render principal
+  // ============================================================
+  return (
+    <>
+      <Box p={3}>
+        <Tooltip label="Volver al menú Producción" placement="bottom-start">
+          <Button
+            leftIcon={<Icon as={FaArrowLeft} />}
+            bg={btnBg}
+            color={btnColor}
+            _hover={{ bg: btnHoverBg, transform: "scale(1.05)" }}
+            onClick={() => navigate("/app/produccion")}
+            size="sm"
+            mb={3}
+            boxShadow="sm"
+          >
+            Atrás
+          </Button>
+        </Tooltip>
+
+        <Flex align="center" justify="space-between" wrap="wrap" gap={3}>
+          <Heading size="md" color={accent}>
+            Gestión de Insumos
+          </Heading>
+        </Flex>
+        <Divider mb={2} />
+      </Box>
+
+      <Box overflowX="auto">
+        <CrudTabla
+          title="Insumos"
+          columns={columns}
+          extractors={extractors}
+          fields={fields}
+          idKey="id_insumo"
+          initialData={data}
+          onInsert={handleInsert}
+          onUpdate={handleUpdate}
+          onDelete={handleDelete}
+          onReload={cargarInsumos}
+          apiUrl="/produccion/insumos"
+        />
+      </Box>
+    </>
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
   );
 }

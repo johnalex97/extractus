@@ -52,7 +52,11 @@ import ReportesContabilidad from "./components/Contabilidad/ReportesContabilidad
 // ===============================
 import Menuproduccion from './components/produccion/menuproduccion';
 import Productos from './components/produccion/productos';
+<<<<<<< HEAD
 
+=======
+import Recetas from './components/produccion/Recetas';
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
 import Produccion from './components/produccion/produccion';
 import Insumos from './components/produccion/Insumos';
 
@@ -165,7 +169,11 @@ function App() {
               {/* ===================== PRODUCCIÓN ===================== */}
               <Route path="produccion" element={<Menuproduccion />} />
               <Route path="produccion/productos" element={<Productos />} />
+<<<<<<< HEAD
               
+=======
+              <Route path="produccion/recetas" element={<Recetas />} />
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
               <Route path="produccion/produccion" element={<Produccion />} />
               <Route path="produccion/insumos" element={<Insumos />} />
 

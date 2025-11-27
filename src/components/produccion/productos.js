@@ -1,5 +1,6 @@
 // ============================================================
 // 📁 src/components/Produccion/Productos.js
+<<<<<<< HEAD
 // 💎 Gestión de Productos con mini dashboard + PDF/Excel
 // ============================================================
 
@@ -10,6 +11,12 @@ import React, {
   useMemo,
 } from "react";
 
+=======
+// 💎 Gestión de Productos con control de stock y estados
+// ============================================================
+
+import React, { useEffect, useState, useCallback } from "react";
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
 import {
   Box,
   Flex,
@@ -21,6 +28,7 @@ import {
   Button,
   Tooltip,
   Icon,
+<<<<<<< HEAD
   Card,
   CardHeader,
   CardBody,
@@ -42,10 +50,15 @@ import {
   FaBan,
 } from "react-icons/fa";
 
+=======
+} from "@chakra-ui/react";
+import { FaArrowLeft } from "react-icons/fa";
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
 import { useNavigate } from "react-router-dom";
 import CrudTabla from "../Seguridad/CrudTabla";
 import api from "../../api/apiClient";
 
+<<<<<<< HEAD
 // 📦 Exportación
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
@@ -73,6 +86,13 @@ export default function Productos() {
   const subtitleColor = useColorModeValue("gray.600", "gray.300");
   const activosNumberColor = useColorModeValue("green.600", "green.300");
   const inactivosNumberColor = useColorModeValue("red.500", "red.300");
+=======
+export default function Productos() {
+  const accent = useColorModeValue("teal.600", "teal.300");
+  const btnBg = useColorModeValue("teal.100", "teal.600");
+  const btnColor = useColorModeValue("teal.800", "white");
+  const btnHoverBg = useColorModeValue("teal.200", "teal.500");
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
 
   const toast = useToast();
   const navigate = useNavigate();
@@ -96,7 +116,10 @@ export default function Productos() {
         status: "error",
         duration: 4000,
         isClosable: true,
+<<<<<<< HEAD
         position: "top",
+=======
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
       });
     }
   }, [toast]);
@@ -104,6 +127,7 @@ export default function Productos() {
   // ============================================================
   // 🔹 Cargar estados
   // ============================================================
+<<<<<<< HEAD
   const cargarEstados = useCallback(async () => {
     try {
       const res = await api.get("/mantenimiento/estado-producto");
@@ -113,6 +137,18 @@ export default function Productos() {
       setEstados([]);
     }
   }, []);
+=======
+const cargarEstados = useCallback(async () => {
+  try {
+    const res = await api.get("/mantenimiento/estado-producto");
+    setEstados(res.data);
+  } catch (err) {
+    console.error("❌ Error cargando estados de producto:", err);
+    setEstados([]);
+  }
+}, []);
+
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
 
   useEffect(() => {
     Promise.all([cargarProductos(), cargarEstados()]).finally(() =>
@@ -121,6 +157,7 @@ export default function Productos() {
   }, [cargarProductos, cargarEstados]);
 
   // ============================================================
+<<<<<<< HEAD
   // 📊 Mini dashboard (totales)
   // ============================================================
   const { totalProductos, productosActivos, productosInactivos } = useMemo(() => {
@@ -142,6 +179,9 @@ export default function Productos() {
 
   // ============================================================
   // 🔹 Campos del formulario CRUD (TU LÓGICA RESPETADA)
+=======
+  // 🔹 Campos del formulario CRUD
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
   // ============================================================
   const fields = [
     {
@@ -183,6 +223,7 @@ export default function Productos() {
       min: 0,
       required: true,
     },
+<<<<<<< HEAD
     {
       name: "id_estado_producto",
       label: "Estado del Producto",
@@ -193,6 +234,19 @@ export default function Productos() {
         label: e.nombre_estado,
       })),
     },
+=======
+  {
+  name: "id_estado_producto",
+  label: "Estado del Producto",
+  type: "select",
+  required: true,
+  options: estados.map((e) => ({
+    value: e.id_estado_producto,
+    label: e.nombre_estado,
+  })),
+}
+
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
   ];
 
   // ============================================================
@@ -216,7 +270,11 @@ export default function Productos() {
     Precio: (r) => `L. ${parseFloat(r.precio_unitario || 0).toFixed(2)}`,
     "Stock Min": (r) => r.stock_minimo,
     "Stock Max": (r) => r.stock_maximo,
+<<<<<<< HEAD
     Estado: (r) => r.estado_producto || "—",
+=======
+Estado: (r) => r.estado_producto || "—",
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
     Fecha: (r) =>
       r.fecha_creacion
         ? new Date(r.fecha_creacion).toLocaleString("es-HN", {
@@ -226,8 +284,14 @@ export default function Productos() {
   };
 
   // ============================================================
+<<<<<<< HEAD
   // 🔹 CRUD (TU LÓGICA ORIGINAL)
   // ============================================================
+=======
+  // 🔹 CRUD
+  // ============================================================
+
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
   const handleInsert = async (nuevo) => {
     try {
       await api.post("/produccion/productos", nuevo);
@@ -236,9 +300,12 @@ export default function Productos() {
       toast({
         title: "Producto agregado",
         status: "success",
+<<<<<<< HEAD
         duration: 3000,
         isClosable: true,
         position: "top",
+=======
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
       });
     } catch (err) {
       console.error(err);
@@ -246,9 +313,12 @@ export default function Productos() {
         title: "Error al agregar",
         description: err.message,
         status: "error",
+<<<<<<< HEAD
         duration: 4000,
         isClosable: true,
         position: "top",
+=======
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
       });
     }
   };
@@ -261,9 +331,12 @@ export default function Productos() {
       toast({
         title: "Producto actualizado",
         status: "success",
+<<<<<<< HEAD
         duration: 3000,
         isClosable: true,
         position: "top",
+=======
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
       });
     } catch (err) {
       console.error(err);
@@ -271,9 +344,12 @@ export default function Productos() {
         title: "Error al actualizar",
         description: err.message,
         status: "error",
+<<<<<<< HEAD
         duration: 4000,
         isClosable: true,
         position: "top",
+=======
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
       });
     }
   };
@@ -286,9 +362,12 @@ export default function Productos() {
       toast({
         title: "Producto eliminado",
         status: "info",
+<<<<<<< HEAD
         duration: 3000,
         isClosable: true,
         position: "top",
+=======
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
       });
     } catch (err) {
       console.error(err);
@@ -296,6 +375,7 @@ export default function Productos() {
         title: "Error al eliminar",
         description: err.message,
         status: "error",
+<<<<<<< HEAD
         duration: 4000,
         isClosable: true,
         position: "top",
@@ -428,6 +508,8 @@ export default function Productos() {
         duration: 4000,
         isClosable: true,
         position: "top",
+=======
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
       });
     }
   };
@@ -437,12 +519,18 @@ export default function Productos() {
   // ============================================================
   if (loading) {
     return (
+<<<<<<< HEAD
       <Flex justify="center" align="center" minH="50vh" bg={pageBg}>
         <Spinner size="xl" color={accent} />
+=======
+      <Flex justify="center" align="center" minH="50vh">
+        <Spinner size="xl" color="teal.400" />
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
       </Flex>
     );
   }
 
+<<<<<<< HEAD
   // ============================================================
   // 🔹 Render principal
   // ============================================================
@@ -600,5 +688,46 @@ export default function Productos() {
         </CardBody>
       </Card>
     </Box>
+=======
+  return (
+    <>
+      <Box p={3}>
+        <Tooltip label="Volver al menú Producción" placement="bottom-start">
+          <Button
+            leftIcon={<Icon as={FaArrowLeft} />}
+            bg={btnBg}
+            color={btnColor}
+            _hover={{ bg: btnHoverBg }}
+            onClick={() => navigate("/app/produccion")}
+            size="sm"
+            mb={3}
+          >
+            Atrás
+          </Button>
+        </Tooltip>
+
+        <Heading size="md" color={accent}>
+          Gestión de Productos
+        </Heading>
+        <Divider mb={2} />
+      </Box>
+
+      <Box overflowX="auto">
+        <CrudTabla
+          title="Productos"
+          columns={columns}
+          extractors={extractors}
+          fields={fields}
+          idKey="id_producto"
+          initialData={data}
+          onInsert={handleInsert}
+          onUpdate={handleUpdate}
+          onDelete={handleDelete}
+          onReload={cargarProductos}
+          apiUrl="/produccion/productos"
+        />
+      </Box>
+    </>
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
   );
 }

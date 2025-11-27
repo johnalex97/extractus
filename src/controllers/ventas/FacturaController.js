@@ -161,6 +161,7 @@ exports.crearFactura = async (req, res) => {
     const id_cambio_cai = 1;
 
     await client.query(
+<<<<<<< HEAD
   `CALL ventasyreserva.sp_insertar_factura(
     $1,$2,$3,$4,$5,$6,$7,$8,$9,
     $10,$11,$12,$13,$14,
@@ -190,6 +191,31 @@ exports.crearFactura = async (req, res) => {
     data.vendedor   // ✅ AQUÍ ENTRA FINALMENTE
   ]
 );
+=======
+      `CALL ventasyreserva.sp_insertar_factura(
+        $1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17
+      )`,
+      [
+        data.numero_factura,
+        data.fecha_emision,
+        data.direccion_entrega,
+        subtotal,
+        descuento_total,
+        importe_gravado_15,
+        importe_gravado_18,
+        isv_15,
+        isv_18,
+        importe_exonerado,
+        importe_exento,
+        total_a_pagar,
+        valor_en_letras,
+        id_metodo_pago,
+        id_estado_pago,
+        id_cambio_cai,
+        data.id_cliente
+      ]
+    );
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
 
     const facID = (await client.query(
       "SELECT MAX(id_factura) AS id FROM ventasyreserva.tbl_facturas"

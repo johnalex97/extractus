@@ -8,7 +8,11 @@ import {
   Heading, Spinner, useToast, Button,
   HStack, Flex, Input, Card, SimpleGrid,
   Text, Modal, ModalBody, ModalHeader,
+<<<<<<< HEAD
   ModalOverlay, ModalContent, ModalFooter, ModalCloseButton,useColorModeValue,
+=======
+  ModalOverlay, ModalContent, ModalFooter, ModalCloseButton,
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
   Select 
 } from "@chakra-ui/react";
 
@@ -19,18 +23,24 @@ import ExcelJS from "exceljs";
 import { saveAs } from "file-saver";
 import api from "../../api/apiClient";
 import logoSrc from "../login/log.png";
+<<<<<<< HEAD
 import { useNavigate } from "react-router-dom";  // Hook para la navegación
 import { FaArrowLeft } from "react-icons/fa";  // Importa FaArrowLeft
 
+=======
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
 
 export default function MovimientosProductos() {
   const [movimientos, setMovimientos] = useState([]);
   const [productos, setProductos] = useState([]);
   const [loading, setLoading] = useState(false);
   const [modal, setModal] = useState(false);
+<<<<<<< HEAD
   const navigate = useNavigate(); // Hook de navegación
     const accent = useColorModeValue("teal.600", "teal.300");
   
+=======
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
 
   // Campos del modal
   const [nuevo, setNuevo] = useState({
@@ -189,6 +199,7 @@ export default function MovimientosProductos() {
   // 🖥️ RENDER
   // ============================================================
   return (
+<<<<<<< HEAD
         <Box p={6}>
           {/* Botón Atrás */}
           <Flex justify="space-between" align="center" mb={5}>
@@ -206,6 +217,10 @@ export default function MovimientosProductos() {
             <Heading size="md" color="teal.700">
               Historial de Movimientos de Insumos
             </Heading>
+=======
+    <Box p={6}>
+
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
       {/* DASHBOARD */}
       <SimpleGrid columns={[1, 4]} spacing={4} mb={6}>
         <Card p={4}><Text>Total</Text><Text fontSize="2xl">{movimientos.length}</Text></Card>
@@ -215,6 +230,7 @@ export default function MovimientosProductos() {
       </SimpleGrid>
 
       {/* BOTONES */}
+<<<<<<< HEAD
    <Flex justify="flex-end" mb={5}>
   <HStack>
     <Button leftIcon={<FaBroom />} onClick={limpiarFiltros}>Limpiar</Button>
@@ -224,6 +240,19 @@ export default function MovimientosProductos() {
   </HStack>
 </Flex>
 
+=======
+      <Flex justify="space-between" mb={5}>
+        <Heading size="md" color="teal.700">Movimientos de Productos</Heading>
+
+        <HStack>
+          <Button leftIcon={<FaPlus />} colorScheme="green" onClick={() => setModal(true)}>Nuevo</Button>
+          <Button leftIcon={<FaBroom />} onClick={limpiarFiltros}>Limpiar</Button>
+          <Button leftIcon={<FaSync />} colorScheme="teal" onClick={() => cargarMovimientos()}>Refrescar</Button>
+          <Button leftIcon={<FaFilePdf />} colorScheme="red" onClick={exportarPDF}>PDF</Button>
+          <Button leftIcon={<FaFileExcel />} colorScheme="green" onClick={exportarExcel}>Excel</Button>
+        </HStack>
+      </Flex>
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
 
       {/* FILTROS */}
       <HStack mb={4}>

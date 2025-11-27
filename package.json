@@ -14,15 +14,23 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.12.2",
     "bcryptjs": "^3.0.2",
+<<<<<<< HEAD
     "chart.js": "^4.5.1",
     "cors": "^2.8.5",
     "date-fns": "^4.1.0",
+=======
+    "cors": "^2.8.5",
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
     "dotenv": "^17.2.3",
     "exceljs": "^4.4.0",
     "express": "^5.1.0",
     "file-saver": "^2.0.5",
     "firebase": "^12.3.0",
+<<<<<<< HEAD
     "firebase-admin": "^13.5.0",
+=======
+    "firebase-admin": "^13.6.0",
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
     "framer-motion": "^6.5.1",
     "jspdf": "^3.0.1",
     "jspdf-autotable": "^5.0.2",
@@ -30,12 +38,19 @@
     "qrcode": "^1.5.4",
     "qrcode.react": "^4.2.0",
     "react": "^18.3.1",
+<<<<<<< HEAD
     "react-chartjs-2": "^5.3.1",
+=======
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
     "react-dom": "^18.3.1",
     "react-icons": "^5.5.0",
     "react-router-dom": "^7.7.1",
     "react-scripts": "5.0.1",
+<<<<<<< HEAD
     "recharts": "^3.5.0",
+=======
+    "recharts": "^3.1.2",
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
     "speakeasy": "^2.0.0",
     "web-vitals": "^2.1.4",
     "xlsx": "^0.18.5",
@@ -50,7 +65,11 @@
     "dev": "npm run kill-ports && concurrently -n WEB,API -c cyan,yellow \"cross-env PORT=3000 react-scripts start\" \"cross-env API_PORT=4000 nodemon src/server.js\"",
     "kill-ports": "npx kill-port 3000 4000"
   },
+<<<<<<< HEAD
   "proxy": "http://68.168.218.97:4000",
+=======
+  "proxy": "http://localhost:4000",
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -73,6 +92,10 @@
     "concurrently": "^9.2.1",
     "cross-env": "^7.0.3",
     "kill-port": "^2.0.1",
+<<<<<<< HEAD
     "nodemon": "^3.1.10"
+=======
+    "nodemon": "^3.1.11"
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
   }
 }

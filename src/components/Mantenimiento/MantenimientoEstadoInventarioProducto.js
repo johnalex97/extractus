@@ -36,7 +36,11 @@ export default function MantenimientoEstadoInventarioProducto() {
   // ============================================================
   const cargarEstadosInventarioProducto = useCallback(async () => {
     try {
+<<<<<<< HEAD
       const res = await fetch("http://REACT_APP_API_URL/mantenimiento/estado-inventario-producto");
+=======
+      const res = await fetch("http://localhost:4000/mantenimiento/estado-inventario-producto");
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
       if (!res.ok) throw new Error("Error al obtener los estados de inventario de producto");
       const json = await res.json();
       setData(json);

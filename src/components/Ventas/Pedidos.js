@@ -474,6 +474,7 @@ export default function Pedidos() {
   return (
     <Box bg={bgMain} minH="100vh" color={textColor}>
       {/* Barra Superior */}
+<<<<<<< HEAD
    {/* Barra Superior */}
 <Flex
   justify="space-between"
@@ -528,6 +529,45 @@ export default function Pedidos() {
 </Flex>
 
 
+=======
+      <Flex
+        justify="space-between"
+        align="center"
+        px={6}
+        py={4}
+        bg={tealHeaderBg}
+        color="white"
+      >
+        <HStack spacing={3}>
+          <Tooltip label="Volver al menú de Ventas">
+            <IconButton
+              icon={<FaArrowLeft />}
+              colorScheme="whiteAlpha"
+              variant="ghost"
+              onClick={() => navigate("/app/ventas")}
+            />
+          </Tooltip>
+          <Heading size="md">📦 Gestión de Pedidos</Heading>
+        </HStack>
+
+        <HStack spacing={3}>
+          <Button
+            leftIcon={<FaFilePdf />}
+            colorScheme="whiteAlpha"
+            onClick={() => exportarPDF()}
+          >
+            Exportar PDF
+          </Button>
+          <Button
+            leftIcon={<FaFileExcel />}
+            colorScheme="whiteAlpha"
+            onClick={() => exportarExcel()}
+          >
+            Exportar Excel
+          </Button>
+        </HStack>
+      </Flex>
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
 
       {/* ============================ */}
       {/* Formulario del Pedido */}

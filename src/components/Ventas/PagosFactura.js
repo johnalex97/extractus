@@ -39,9 +39,12 @@ import {
 } from "@chakra-ui/react";
 import { FaMoneyBillWave, FaSearch, FaTrash } from "react-icons/fa";
 import api from "../../api/apiClient";
+<<<<<<< HEAD
 import { FaArrowLeft } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
+=======
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
 
 // ================================
 // Utiles
@@ -77,7 +80,10 @@ export default function PagosFactura() {
   // ================================
   const [resumen, setResumen] = useState([]);
   const [loading, setLoading] = useState(false);
+<<<<<<< HEAD
 const navigate = useNavigate();
+=======
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
 
   // Métodos de pago
   const [metodosPago, setMetodosPago] = useState([]);
@@ -330,6 +336,7 @@ const navigate = useNavigate();
   // ============================================================
   return (
     <Box p={4}>
+<<<<<<< HEAD
          <Button
     leftIcon={<FaArrowLeft />}
     onClick={() => navigate("/app/contabilidad")}  // Ajusta la ruta correcta
@@ -344,6 +351,9 @@ const navigate = useNavigate();
           {/* Botón Atrás */}
  
 
+=======
+      <Flex justify="space-between" mb={4}>
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
         <Heading size="lg" color={titleColor}>
           Pagos de Facturas
         </Heading>

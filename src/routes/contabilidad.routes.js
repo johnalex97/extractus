@@ -11,8 +11,11 @@ const router = express.Router();
 const creditosController = require("../controllers/contabilidad/creditos.controller");
 const moraController = require("../controllers/contabilidad/mora.controller");
 const pagosController = require("../controllers/contabilidad/pagos.controller");
+<<<<<<< HEAD
 const DashboardController = require("../controllers/contabilidad/DashboardController");
 
+=======
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
 
 // ============================================================
 // 💳 RUTAS CRUD CRÉDITOS
@@ -22,11 +25,14 @@ router.post("/creditos", creditosController.insertarCredito);
 router.put("/creditos/:id_credito", creditosController.actualizarCredito);
 router.delete("/creditos/:id_credito", creditosController.eliminarCredito);
 
+<<<<<<< HEAD
 router.get("/dashboard", DashboardController.dashboardEjecutivo);
 router.get("/dashboard/ventas-dia", DashboardController.ventasPorDia);
 router.get("/dashboard/ventas-vendedor", DashboardController.ventasPorVendedor);
 
 
+=======
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
 // ============================================================
 // 🕒 RUTAS CRUD MORAS
 // ============================================================

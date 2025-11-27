@@ -5,7 +5,11 @@ import {
   Button, FormControl, FormLabel, Input, useToast, Text
 } from "@chakra-ui/react";
 import { sendPasswordResetEmail } from "firebase/auth";
+<<<<<<< HEAD
 import { auth } from "../../firebase.client";
+=======
+import { auth } from "../../firebase";
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
 
 export default function ForgotPasswordModal({ isOpen, onClose }) {
   const [email, setEmail] = useState("");

@@ -28,7 +28,12 @@ build/
 dist/
 
 # Variables de entorno (permitir .env)
+<<<<<<< HEAD
 .env
+=======
+#.env
+#.env.*
+>>>>>>> c26ca57c4eb2baed6a2b44a735d3d122b6f44480
 #!.env.example
 
 # Logs y temporales
