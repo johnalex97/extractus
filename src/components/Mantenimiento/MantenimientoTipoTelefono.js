@@ -18,7 +18,7 @@ export default function MantenimientoTipoTelefono() {
 
   const cargarTiposTelefono = async () => {
     try {
-      const res = await fetch("http://localhost:4000/mantenimiento/tipo-telefono");
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/mantenimiento/tipo-telefono`);
       if (!res.ok) throw new Error("Error al obtener los tipos de teléfono");
       const json = await res.json();
       setData(json);

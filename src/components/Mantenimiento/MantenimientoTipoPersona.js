@@ -36,7 +36,7 @@ export default function MantenimientoTipoPersona() {
   // ============================================================
   const cargarTiposPersona = async () => {
     try {
-      const res = await fetch("http://localhost:4000/mantenimiento/tipo-persona");
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/mantenimiento/tipo-persona`);
       if (!res.ok) throw new Error("Error al obtener los tipos de persona");
       const json = await res.json();
       setData(json);

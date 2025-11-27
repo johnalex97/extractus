@@ -16,7 +16,7 @@ export default function MfaVerifyTotp({ onVerified }) {
 
     try {
       setLoading(true);
-      const res = await fetch("http://localhost:4000/api/mfa/verify", {
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/api/mfa/verify`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ uid, code }),

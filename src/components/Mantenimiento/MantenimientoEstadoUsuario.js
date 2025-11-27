@@ -36,7 +36,7 @@ export default function MantenimientoEstadoUsuario() {
   // ============================================================
   const cargarEstadosUsuario = async () => {
     try {
-      const res = await fetch("http://localhost:4000/mantenimiento/estado-usuario");
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/mantenimiento/estado-usuario`);
       if (!res.ok) throw new Error("Error al obtener los estados de usuario");
       const json = await res.json();
       setData(json);

@@ -28,7 +28,7 @@ export default function Correos() {
   // ============================================================
   const cargarCorreos = async () => {
     try {
-      const res = await fetch("http://localhost:4000/seguridad/correos");
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/seguridad/correos`);
       if (!res.ok) throw new Error("Error al obtener correos");
       const json = await res.json();
       setData(json);
@@ -51,7 +51,7 @@ export default function Correos() {
   // ============================================================
   const cargarPersonas = async () => {
     try {
-      const res = await fetch("http://localhost:4000/seguridad/personas");
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/seguridad/personas`);
       if (!res.ok) throw new Error("Error al obtener personas");
       const json = await res.json();
       setPersonas(json);

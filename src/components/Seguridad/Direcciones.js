@@ -37,7 +37,7 @@ export default function Direcciones() {
   // ============================================================
   const cargarDirecciones = async () => {
     try {
-      const res = await fetch("http://localhost:4000/seguridad/direcciones");
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/seguridad/direcciones`);
       if (!res.ok) throw new Error("Error al obtener direcciones desde la API");
       const json = await res.json();
       setData(json);
@@ -60,7 +60,7 @@ export default function Direcciones() {
   // ============================================================
   const cargarPersonas = async () => {
     try {
-      const res = await fetch("http://localhost:4000/seguridad/personas");
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/seguridad/personas`);
       const json = await res.json();
       setPersonas(json);
     } catch (error) {

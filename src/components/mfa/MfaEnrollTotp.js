@@ -13,7 +13,7 @@ export default function MfaEnrollTotp({ onDone }) {
       const uid = localStorage.getItem("userEmail");
       if (!uid) return toast({ title: "Error", description: "Usuario no encontrado", status: "error" });
 
-      const res = await fetch(`http://localhost:4000/api/mfa/enroll/start?uid=${uid}`);
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/api/mfa/enroll/start?uid=${uid}`);
       const data = await res.json();
 
       if (data.alreadyEnabled) {
@@ -32,7 +32,7 @@ export default function MfaEnrollTotp({ onDone }) {
 
     try {
       setLoading(true);
-      const res = await fetch("http://localhost:4000/api/mfa/enroll/confirm", {
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/api/mfa/enroll/confirm`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ uid, code }),

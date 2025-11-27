@@ -28,7 +28,7 @@ export default function Telefonos() {
   // ============================================================
   const cargarTelefonos = useCallback(async () => {
     try {
-      const res = await fetch("http://localhost:4000/seguridad/telefonos");
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/seguridad/telefonos`);
       if (!res.ok) throw new Error("Error al obtener teléfonos");
       const json = await res.json();
       setData(json);
@@ -50,7 +50,7 @@ export default function Telefonos() {
   // ============================================================
   const cargarPersonas = useCallback(async () => {
     try {
-      const res = await fetch("http://localhost:4000/seguridad/personas");
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/seguridad/personas`);
       const json = await res.json();
       setPersonas(json);
     } catch (error) {
@@ -63,7 +63,7 @@ export default function Telefonos() {
   // ============================================================
   const cargarTiposTelefono = useCallback(async () => {
     try {
-      const res = await fetch("http://localhost:4000/mantenimiento/tipo-telefono");
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/mantenimiento/tipo-telefono`);
       const json = await res.json();
       setTiposTelefono(json);
     } catch (error) {
