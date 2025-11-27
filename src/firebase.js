@@ -1,14 +1,17 @@
+// ⬆⬆⬆ TODOS LOS IMPORTS ARRIBA
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
+// ⬇⬇⬇ LUEGO TU CONFIG, VARIABLES, CÓDIGO
 const firebaseConfig = {
-  apiKey: "AIzaSyB8gvtKn-neXPjG8Ksw5JbKtuXidNlzx0A",
-  authDomain: "extractus-auth.firebaseapp.com",
-  projectId: "extractus-auth",
-  storageBucket: "extractus-auth.appspot.com",
-  messagingSenderId: "94584034869",
-  appId: "1:94584034869:web:f9b518c09dc4640e69837c",
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
 };
 
 const app = initializeApp(firebaseConfig);
+
 export const auth = getAuth(app);
