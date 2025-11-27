@@ -1,21 +1,20 @@
-# Etapa 1: Construcción del frontend
-FROM node:18 AS build
+FROM node:20 AS app-stage
 
 WORKDIR /app
 
 COPY package*.json ./
-
 RUN npm install
 
 COPY . .
 
-RUN npm run build
+FROM node:20
 
-# Etapa 2: Servir archivos estáticos con Nginx
-FROM nginx:stable-alpine
+COPY --from=app-stage /app /app
 
-COPY --from=build /app/build /usr/share/nginx/html
+WORKDIR /app
 
-EXPOSE 80
+EXPOSE 3000 4000
 
-CMD ["nginx", "-g", "daemon off;"]
+ENV DANGEROUSLY_DISABLE_HOST_CHECK=true
+
+CMD ["npm", "run", "dev"]
