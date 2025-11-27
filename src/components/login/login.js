@@ -36,7 +36,7 @@ import {
   browserLocalPersistence,
   browserSessionPersistence,
 } from "firebase/auth";
-import { auth } from "../../firebase";
+import { auth } from "../../firebase.client";
 import signInLogo from "./log.png";
 import { mfaGenerate, mfaVerify } from "../auth/mfaClient";
 

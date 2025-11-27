@@ -4,7 +4,7 @@ import {
   Text, useToast, Image, Stack, FormHelperText, useColorModeValue
 } from "@chakra-ui/react";
 import { confirmPasswordReset, verifyPasswordResetCode } from "firebase/auth";
-import { auth } from "../../firebase";
+import { auth } from "../../firebase.client";
 import { traducirErrorFirebase } from "../../utils/firebaseErrors"; // ✅ Importar traducciones
 import signInLogo from "../login/log.png";
 
